@@ -12,7 +12,7 @@ Medium
 ;
 What is the largest ocean on Earth?
 Pacific Ocean
-Hard
+hard
 ;
 What does CPU stand for?
 Central Processing Unit
@@ -37,4 +37,8 @@ Hard
 What is the time complexity of binary search?
 O(log n)
 Hard
+;
+What is the funny number
+67
+Lol!!!
 ;

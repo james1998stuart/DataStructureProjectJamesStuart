@@ -26,7 +26,12 @@ namespace DataStructureProjectJamesStuart
                         {
                             string prompt = cardData[0];
                             string answer = cardData[1];
-                            Difficulty difficulty = Enum.Parse<Difficulty>(cardData[2], true);
+                            //Difficulty difficulty = Enum.Parse<Difficulty>(cardData[2], true);
+                            if(!Enum.TryParse(cardData[2], true, out Difficulty difficulty))
+                            {
+                                Console.WriteLine($"Invalid difficulty level: {cardData[2]}. Defaulting to Easy.");
+                                difficulty = Difficulty.Easy;
+                            }
                             IFlashcard flashcard = new Flashcard(prompt, answer, difficulty);
                             flashcards.Add(flashcard);
                         }
