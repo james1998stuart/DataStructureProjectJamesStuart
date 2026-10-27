@@ -17,7 +17,7 @@ namespace DataStructureProjectJamesStuart
             List<string> reviewOrder = new List<string>();
             int correct = 0;
             int incorrect = 0;
-            int cardPosition = 0;
+            int cardPosition = 1;
             while (flashcards.Count > 0) {
                 int currentCard = rand.Next(flashcards.Count);
                 reviewOrder.Add($"[{cardPosition}] {flashcards[currentCard].Prompt} - {flashcards[currentCard].Difficulty}");

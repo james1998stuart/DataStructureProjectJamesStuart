@@ -18,6 +18,7 @@
             Console.WriteLine("Welcome to the Flashcard Study Program!");
             Console.WriteLine("What is the file path of your flashcards? Please remove the quotes around the path.");
             string filePath = Console.ReadLine();
+            List<IFlashcard> flashcards = loader.LoadCards(filePath);
             while (true)
             {
                 Console.WriteLine("Choose a study method:");
@@ -26,26 +27,26 @@
                 Console.WriteLine("3. Priority Study");
                 Console.WriteLine("4. Random Study");
                 Console.WriteLine("5. ???");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("n. Exit");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
-                        stackStudy.Run(loader.LoadCards(filePath));
+                        stackStudy.Run(flashcards);
                         break;
                     case "2":
-                        queueStudy.Run(loader.LoadCards(filePath));
+                        queueStudy.Run(flashcards);
                         break;
                     case "3":
-                        priorityStudy.Run(loader.LoadCards(filePath));
+                        priorityStudy.Run(flashcards);
                         break;
                     case "4":
-                        randomStudy.Run(loader.LoadCards(filePath));
+                        randomStudy.Run(flashcards);
                         break;
                     case "5":
                         doomReward.launchDoom();
                         return;
-                    case "6":
+                    case "n":
                         Console.WriteLine("Exiting the program. Goodbye!");
                         return;
                     default:
