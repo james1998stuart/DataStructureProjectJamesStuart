@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace DataStructureProjectJamesStuart
 {
+    /// <summary>
+    /// Implements random flashcard studying using a generic List
+    /// and the built-in Random class.
+    /// </summary>
     public class RandomStudy
     {
-
+        /// <summary>
+        /// Randomly selects flashcards from the remaining collection.
+        /// Reviewed cards are removed to prevent repeated selection
+        /// during a completed session.
+        /// </summary>
+        /// <param name="flashcards">
+        /// The collection of flashcards used for random selection.
+        /// This list is modified as cards are removed.
+        /// </param>
         public void Run(List<IFlashcard> flashcards)
         {
             Random rand = new Random();

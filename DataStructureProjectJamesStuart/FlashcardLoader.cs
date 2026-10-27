@@ -7,8 +7,22 @@ using System.IO;
 
 namespace DataStructureProjectJamesStuart
 {
+    /// <summary>
+    /// Loads flashcard information from a structured text file
+    /// and converts it into a collection of IFlashcard objects.
+    /// </summary>
     public class FlashcardLoader
     {
+        /// <summary>
+        /// Reads a text file and creates flashcard objects from its contents.
+        /// Flashcards are separated by semicolon delimiters.
+        /// </summary>
+        /// <param name="filePath">
+        /// The path to the text file containing the flashcards.
+        /// </param>
+        /// <returns>
+        /// A list containing the flashcards successfully loaded.
+        /// </returns>
         public List<IFlashcard> LoadCards(string filePath)
         {
             List<IFlashcard> flashcards = new List<IFlashcard>();

@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace DataStructureProjectJamesStuart
 {
+    /// <summary>
+    /// Implements the Queue study mode using FIFO
+    /// (First In, First Out) ordering.
+    /// </summary>
     public class QueueStudy
     {
         /// <summary>
-        /// Runs a queue-based study session.
+        /// Reviews flashcards in their original insertion order.
+        /// Tracks correct answers, incorrect answers, and review order.
         /// </summary>
-        /// <param name="flashcards">Cards to review in file order.</param>
+        /// <param name="flashcards">
+        /// The collection of flashcards to review.
+        /// </param>
         public void Run(List<IFlashcard> flashcards)
         {
             Console.WriteLine("\n\n---------------------------------\n-     initiating queue study    -\n---------------------------------\n\n\n");

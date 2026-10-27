@@ -3,8 +3,19 @@
     using System.Diagnostics;
     using System.IO;
     using DataStructureProjectJamesStuart;
+    /// <summary>
+    /// Provides the main entry point and menu for the
+    /// Flashcard Study Application.
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Initializes the study modes, accepts the flashcard file path,
+        /// and displays the interactive menu used to select a study mode.
+        /// </summary>
+        /// <param name="args">
+        /// Command-line arguments supplied when starting the program.
+        /// </param>
         static void Main(string[] args)
         {
             

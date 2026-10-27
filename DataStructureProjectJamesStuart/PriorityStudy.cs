@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace DataStructureProjectJamesStuart
 {
+    /// <summary>
+    /// Implements Priority Round-Robin studying by cycling
+    /// through Easy, Medium, and Hard difficulty levels.
+    /// </summary>
     public class PriorityStudy
     {
+        /// <summary>
+        /// Separates flashcards into difficulty-based priority queues
+        /// and arranges them in a repeating Easy, Medium, Hard sequence.
+        /// </summary>
+        /// <param name="flashcards">
+        /// The collection of flashcards to organize and review.
+        /// </param>
         public void Run(List<IFlashcard> flashcards)
         {
             Console.WriteLine("\n\n---------------------------------\n-   initiating priority study   -\n---------------------------------\n\n\n");

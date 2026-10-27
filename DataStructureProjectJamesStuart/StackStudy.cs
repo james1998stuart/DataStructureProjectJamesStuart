@@ -7,10 +7,20 @@ using System.Threading.Tasks;
 
 namespace DataStructureProjectJamesStuart
 {
+    /// <summary>
+    /// Implements the Stack (LIFO) flashcard review mode.
+    /// Flashcards are reviewed in reverse order of insertion.
+    /// </summary>
     public class StackStudy
     {
 
-
+        /// <summary>
+        /// Runs a flashcard study session using a Stack.
+        /// Tracks correct answers, incorrect answers, and review order.
+        /// </summary>
+        /// <param name="flashcards">
+        /// The collection of flashcards loaded from the text file.
+        /// </param>
         public void Run(List<IFlashcard> flashcards)
         {
 
