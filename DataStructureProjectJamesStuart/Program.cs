@@ -14,15 +14,13 @@
             PriorityStudy priorityStudy = new PriorityStudy();
             RandomStudy randomStudy = new RandomStudy();
             DoomReward doomReward = new DoomReward();
-            doomReward.launchDoom();
+            //doomReward.launchDoom();
 
 
 
-            randomStudy.Run(loader.LoadCards("cards.txt"));
-            randomStudy.Run(loader.LoadCards("cards.txt"));
-            randomStudy.Run(loader.LoadCards("cards.txt"));
-            randomStudy.Run(loader.LoadCards("cards.txt"));
-            //priorityStudy.Run(loader.LoadCards("cards.txt"));
+            
+            //randomStudy.Run(loader.LoadCards("cards.txt"));
+            priorityStudy.Run(loader.LoadCards("cards.txt"));
             //stackStudy.Run(loader.LoadCards("cards.txt"));
             //queueStudy.Run(loader.LoadCards("cards.txt"));
 

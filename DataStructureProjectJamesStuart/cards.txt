@@ -10,3 +10,31 @@ Largest planet?
 Jupiter
 Medium
 ;
+What is the largest ocean on Earth?
+Pacific Ocean
+Easy
+;
+What does CPU stand for?
+Central Processing Unit
+Easy
+;
+What is the chemical symbol for gold?
+Au
+Medium
+;
+What year did World War II end?
+1945
+Medium
+;
+What is the square root of 144?
+12
+Easy
+;
+What is the capital of Australia?
+Canberra
+Hard
+;
+What is the time complexity of binary search?
+O(log n)
+Hard
+;

@@ -11,15 +11,70 @@ namespace DataStructureProjectJamesStuart
         public void Run(List<IFlashcard> flashcards)
         {
             Console.WriteLine("\n\n---------------------------------\n-   initiating priority study   -\n---------------------------------\n\n\n");
-            PriorityQueue<IFlashcard, Difficulty> priorityQueue = new PriorityQueue<IFlashcard, Difficulty>();
+            Queue<IFlashcard> priorityQueue = new();
             int correct = 0;
             int incorrect = 0;
             int cardPosition = 0;
+            
             List<string> reviewOrder = new List<string>();
+            PriorityQueue<IFlashcard, Difficulty> easyQueue = new();
+            PriorityQueue<IFlashcard, Difficulty> mediumQueue = new();
+            PriorityQueue<IFlashcard, Difficulty> hardQueue = new();
             foreach (Flashcard card in flashcards)
             {
-                priorityQueue.Enqueue(card, card.Difficulty);
+                if (card.Difficulty == Difficulty.Easy)
+                {
+                    easyQueue.Enqueue(card, card.Difficulty);
+                }
+                else if (card.Difficulty == Difficulty.Medium)
+                {
+                    mediumQueue.Enqueue(card, card.Difficulty);
+                }
+                else if (card.Difficulty == Difficulty.Hard)
+                {
+                    hardQueue.Enqueue(card, card.Difficulty);
+                }
+                
             }
+
+            int currentDifficulty = 0;
+            foreach (Flashcard card in flashcards)
+            {
+                
+                if(currentDifficulty == 0)
+                {
+                    if(easyQueue.Count > 0)
+                    {
+                        priorityQueue.Enqueue(easyQueue.Dequeue());
+                    }                   
+                    
+                }
+                if (currentDifficulty == 1)
+                {
+                    if (mediumQueue.Count > 0)
+                    { 
+                        priorityQueue.Enqueue(mediumQueue.Dequeue());
+                      }
+                    
+                }
+                if (currentDifficulty == 2)
+                {
+                    if (hardQueue.Count > 0){
+                        priorityQueue.Enqueue(hardQueue.Dequeue());                        
+                    }                   
+                }
+
+                if (currentDifficulty ==2)
+                {
+                    currentDifficulty = 0;
+                }
+                else
+                {
+                    currentDifficulty++;
+                }
+                    
+            }
+
             while (priorityQueue.Count > 0)
             {
                 IFlashcard currentCard = priorityQueue.Dequeue();
