@@ -38,7 +38,7 @@ namespace DataStructureProjectJamesStuart
             }
 
             int currentDifficulty = 0;
-            foreach (Flashcard card in flashcards)
+            while(easyQueue.Count > 0 || mediumQueue.Count > 0 || hardQueue.Count > 0)
             {
                 
                 if(currentDifficulty == 0)

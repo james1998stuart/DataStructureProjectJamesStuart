@@ -12,11 +12,11 @@ Medium
 ;
 What is the largest ocean on Earth?
 Pacific Ocean
-Easy
+Hard
 ;
 What does CPU stand for?
 Central Processing Unit
-Easy
+Hard
 ;
 What is the chemical symbol for gold?
 Au
