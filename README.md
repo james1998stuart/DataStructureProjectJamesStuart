@@ -1,5 +1,7 @@
 Flashcard Study App
+
 James Stuart
+
 Data Structures Project
 
 ----------
