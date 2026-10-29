@@ -22,6 +22,7 @@ namespace DataStructureProjectJamesStuart
         public void Run(List<IFlashcard> flashcards)
         {
             Console.WriteLine("\n\n---------------------------------\n-   initiating priority study   -\n---------------------------------\n\n\n");
+            Console.WriteLine("Quit at any time by typing n");
             Queue<IFlashcard> priorityQueue = new();
             int correct = 0;
             int incorrect = 0;
@@ -31,7 +32,8 @@ namespace DataStructureProjectJamesStuart
             PriorityQueue<IFlashcard, Difficulty> easyQueue = new();
             PriorityQueue<IFlashcard, Difficulty> mediumQueue = new();
             PriorityQueue<IFlashcard, Difficulty> hardQueue = new();
-            foreach (Flashcard card in flashcards)
+
+            foreach (Flashcard card in flashcards)//sorts out each difficulty into a queue
             {
                 if (card.Difficulty == Difficulty.Easy)
                 {
@@ -49,7 +51,8 @@ namespace DataStructureProjectJamesStuart
             }
 
             int currentDifficulty = 0;
-            while(easyQueue.Count > 0 || mediumQueue.Count > 0 || hardQueue.Count > 0)
+
+            while(easyQueue.Count > 0 || mediumQueue.Count > 0 || hardQueue.Count > 0)//depletes all queues
             {
                 
                 if(currentDifficulty == 0)
@@ -75,7 +78,7 @@ namespace DataStructureProjectJamesStuart
                     }                   
                 }
 
-                if (currentDifficulty ==2)
+                if (currentDifficulty ==2)//resets the queue in the order dessired by glorious leader Bowlin
                 {
                     currentDifficulty = 0;
                 }
@@ -89,29 +92,29 @@ namespace DataStructureProjectJamesStuart
             while (priorityQueue.Count > 0)
             {
                 IFlashcard currentCard = priorityQueue.Dequeue();
+
                 cardPosition++;
                 reviewOrder.Add($"[{cardPosition}] {currentCard.Prompt} - {currentCard.Difficulty}");
+
                 Console.WriteLine($"[{currentCard.Difficulty}]\nPrompt: {currentCard.Prompt}");
                 string userAnswer = Console.ReadLine();
+
                 if (userAnswer.Equals(currentCard.Answer, StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine("Correct!");
                     correct++;
+                }
+                else if (userAnswer.Equals("n", StringComparison.OrdinalIgnoreCase))//if user types n they go back to the menu
+                {
+                    Console.WriteLine("Exiting the study session.");
+                    break;
                 }
                 else
                 {
                     Console.WriteLine($"Incorrect. The correct answer is: {currentCard.Answer}");
                     incorrect++;
                 }
-                if(priorityQueue.Count > 0)
-                {
-                    Console.WriteLine("\nPress Enter to continue or n to quit: \n");  
-                    string choice = Console.ReadLine();
-                    if (choice.Equals("n", StringComparison.OrdinalIgnoreCase))
-                    {
-                        break;
-                    }
-                }
+                
 
             }
             int totalReviewed = correct + incorrect;

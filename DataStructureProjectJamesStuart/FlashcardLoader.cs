@@ -28,11 +28,11 @@ namespace DataStructureProjectJamesStuart
             List<IFlashcard> flashcards = new List<IFlashcard>();
             try
             {
-                string[] lines = File.ReadAllLines(filePath);
+                string[] lines = File.ReadAllLines(filePath);//puts each line of the file into an array of strings
                 List<string> cardData = new List<string>();
                 foreach (string line in lines)
                 { 
-                    string trimmedLine = line.Trim();
+                    string trimmedLine = line.Trim();//trims the line of whitespace so that the semicolon is the only character on the line
 
                     if (trimmedLine == ";")
                     {
@@ -40,8 +40,8 @@ namespace DataStructureProjectJamesStuart
                         {
                             string prompt = cardData[0];
                             string answer = cardData[1];
-                            //Difficulty difficulty = Enum.Parse<Difficulty>(cardData[2], true);
-                            if(!Enum.TryParse(cardData[2], true, out Difficulty difficulty))
+                            //checks for valid difficulty level, defaults to Easy if invalid
+                            if (!Enum.TryParse(cardData[2], true, out Difficulty difficulty))
                             {
                                 Console.WriteLine($"Invalid difficulty level: {cardData[2]}. Defaulting to Easy.");
                                 difficulty = Difficulty.Easy;

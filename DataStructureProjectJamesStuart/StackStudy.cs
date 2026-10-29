@@ -25,6 +25,7 @@ namespace DataStructureProjectJamesStuart
         {
 
             Console.WriteLine("\n\n---------------------------------\n-     initiating stack study    -\n---------------------------------\n\n\n");
+            Console.WriteLine("Quit at any time by typing n.\n\n\n");
             Stack<IFlashcard> stack = new Stack<IFlashcard>();
 
             List<string> reviewOrder = new List<string>();    
@@ -43,29 +44,24 @@ namespace DataStructureProjectJamesStuart
                     IFlashcard currentCard = stack.Pop();
                     Console.WriteLine($"Prompt: {currentCard.Prompt}");
                      cardposition++;
-                    reviewOrder.Add($"[{cardposition}] {currentCard.Prompt} - {currentCard.Difficulty}");
-                    string userAnswer = Console.ReadLine();
+                    reviewOrder.Add($"[{cardposition}] {currentCard.Prompt} - {currentCard.Difficulty}");//Creates a beautiful review order list for the summary at the end of the session
+                string userAnswer = Console.ReadLine();
                     if (userAnswer.Equals(currentCard.Answer, StringComparison.OrdinalIgnoreCase))
                     {
                         Console.WriteLine("Correct!");
                         correct++;
                     }
-                    else
+                else if (userAnswer.Equals("n", StringComparison.OrdinalIgnoreCase))//if user types n they go back to the menu
+                {
+                    Console.WriteLine("Exiting the study session.");
+                    break;
+                }
+                else
                     {
                         Console.WriteLine($"Incorrect. The correct answer is: {currentCard.Answer}");
                         incorrect++;
-                    }
-
-                if (stack.Count > 0)
-                {
-                    Console.WriteLine("\nPress Enter to continue or n to quit: ");
-                    string choice = Console.ReadLine();
-                    if (choice.Equals("n", StringComparison.OrdinalIgnoreCase))
-                    {
-                        break;
-                    }
-                }
-            }
+                    }               
+                 }
             int totalReviewed = correct + incorrect;
            
             
