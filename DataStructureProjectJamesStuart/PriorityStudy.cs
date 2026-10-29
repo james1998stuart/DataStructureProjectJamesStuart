@@ -22,7 +22,7 @@ namespace DataStructureProjectJamesStuart
         public void Run(List<IFlashcard> flashcards)
         {
             Console.WriteLine("\n\n---------------------------------\n-   initiating priority study   -\n---------------------------------\n\n\n");
-            Console.WriteLine("Quit at any time by typing n");
+            Console.WriteLine("Quit at any time by typing n.\n\n\n");
             Queue<IFlashcard> priorityQueue = new();
             int correct = 0;
             int incorrect = 0;
